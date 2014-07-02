@@ -42,3 +42,8 @@ Thumbs.db
 ####################################
 *~
 \#*\#
+
+# ignoring examples subfolder (if existing) #
+#############################################
+examples
+examples/*
