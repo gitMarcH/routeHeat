@@ -16,11 +16,13 @@ Summary
 
 routeHeat allows you to use all your GPS activity files (currently only GPX and Garmin FIT formats are supported) and plot them in transparent colours onto a background. The transparency means that routes run/walked more often will be coloured more vividly. If you run often in a town or city, you should start recognising the roads from that city - as if it were a map.
 
-Dependencies
+Dependencies (need to be installed and added to the $PATH variable)
 --------------
 
 bash - www.gnu.org/s/bash/
+
 R - www.r-project.org; does not depend on any specific version, but requires the graphics library with most standard graphic devices (pdf, png, svg) supported
+
 gpsbabel - www.gpsbabel.org; for converting FIT files to GPX
 
 Usage
