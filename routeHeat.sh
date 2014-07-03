@@ -91,6 +91,7 @@ for file in $prefixGPX*.gpx; do
     echo "DEBUG: $file"
     ((counter++))
     cat $file | grep "<trkpt" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,0}' OFS="\t" >> $tmpFile
+    cat $file | grep "<rtept" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,0}' OFS="\t" >> $tmpFile
     cat $file | grep "<startPoint" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,1}' OFS="\t" >> $tmpFile
     cat $file | grep "<endPoint" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,2}' OFS="\t" >> $tmpFile
 done
