@@ -34,33 +34,33 @@ ImageMagick [only if outputting animated gifs; specifically 'convert' needs to b
 Usage
 --------------
 
-- routeHeat.sh \
-  name_of_output_file \
-  background_colour \
-  line_colour \
-  path_and_filename_for_temporary_files \
-  latitude_minimum \
-    latitude_maximum \
-    longitude_minimum \
-    longitude_maximum \
-    line_width \
-    line_transparency \
-    output_format \
-    use_map_or_not \
+routeHeat.sh 
+    name_of_output_file 
+    background_colour 
+    line_colour 
+    path_and_filename_for_temporary_files 
+    latitude_minimum 
+    latitude_maximum 
+    longitude_minimum 
+    longitude_maximum 
+    line_width 
+    line_transparency 
+    output_format 
+    use_map_or_not 
     path_and_filename_prefix_of_input_files
 
 where:
-	name_of_output_file = (character string) name of output file
-	background_colour = (character; colour name or hex code) colour for background
-	line_colour = (character; colour name or hex code) colour for drawing run paths
-	path_and_filename_for_temporary_files = (character; filename with [optionally] path) gets used to build up a concatenated version of the GPS coordinates; NB file will be deleted at the end
-	latitude_minimum & latitude_maximum = (numeric) lower (south) and upper (north) bounds in latitude for the plotted region
-	longitude_minimum & longitude_maximum = (numeric) lower (east) and upper (west) bounds in longitude for the plotted region
-	line_width = (numeric) thickness of the lines; NB the more paths you plot the lower you want this value to be
-	line_transparency = (numeric between 0 [invisible] and 1 [fully opaque]) sets the transperency of the run paths; the more runs you plot, the lower your value should be
-	out_put format = (comma-separated list of character strings); one of svg, png, pdf, animGIF or any combination thereof (e.g. svg,png,animGIF)
-	use_map_or_not = (binary); should a map be plotted underneath, 0 = FALSE, 1 = TRUE; NB experimental feature; does not work well with svg output; your plotted region might change slightly
-	path_and_filename_prefix_of_input_files = (character string; path + filename prefix); all files within that directory and with that fileprefix will be used (e.g. /Users/user/myruns/2014*)
+  - name_of_output_file = (character string) name of output file
+  - background_colour = (character; colour name or hex code) colour for background
+  - line_colour = (character; colour name or hex code) colour for drawing run paths
+  - path_and_filename_for_temporary_files = (character; filename with [optionally] path) gets used to build up a concatenated version of the GPS coordinates; NB file will be deleted at the end
+  - latitude_minimum & latitude_maximum = (numeric) lower (south) and upper (north) bounds in latitude for the plotted region
+  - longitude_minimum & longitude_maximum = (numeric) lower (east) and upper (west) bounds in longitude for the plotted region
+  - line_width = (numeric) thickness of the lines; NB the more paths you plot the lower you want this value to be
+  - line_transparency = (numeric between 0 [invisible] and 1 [fully opaque]) sets the transperency of the run paths; the more runs you plot, the lower your value should be
+  - out_put format = (comma-separated list of character strings); one of svg, png, pdf, animGIF or any combination thereof (e.g. svg,png,animGIF)
+  - use_map_or_not = (binary); should a map be plotted underneath, 0 = FALSE, 1 = TRUE; NB experimental feature; does not work well with svg output; your plotted region might change slightly
+  - path_and_filename_prefix_of_input_files = (character string; path + filename prefix); all files within that directory and with that fileprefix will be used (e.g. /Users/user/myruns/2014*)
 	
 
 NB if latitude and longitude limits should be computed from the input files then set min and max values to the same numeric value
