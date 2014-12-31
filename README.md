@@ -34,19 +34,19 @@ ImageMagick [only if outputting animated gifs; specifically 'convert' needs to b
 Usage
 --------------
 routeHeat.sh \
-	     name_of_output_file \
-	     background_colour \
-	     line_colour \
-	     path_and_filename_for_temporary_files \
-	     latitude_minimum \
-	     latitude_maximum \
-	     longitude_minimum \
-	     longitude_maximum \
-	     line_width \
-	     line_transparency \
-	     output_format \
-	     use_map_or_not \
-	     path_and_filename_prefix_of_input_files
+    name_of_output_file \
+    background_colour \
+    line_colour \
+    path_and_filename_for_temporary_files \
+    latitude_minimum \
+    latitude_maximum \
+    longitude_minimum \
+    longitude_maximum \
+    line_width \
+    line_transparency \
+    output_format \
+    use_map_or_not \
+    path_and_filename_prefix_of_input_files
 
 where:
 	name_of_output_file = (character string) name of output file
