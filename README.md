@@ -33,12 +33,13 @@ ImageMagick [only if outputting animated gifs; specifically 'convert' needs to b
 
 Usage
 --------------
-routeHeat.sh \
-    name_of_output_file \
-    background_colour \
-    line_colour \
-    path_and_filename_for_temporary_files \
-    latitude_minimum \
+
+- routeHeat.sh \
+  name_of_output_file \
+  background_colour \
+  line_colour \
+  path_and_filename_for_temporary_files \
+  latitude_minimum \
     latitude_maximum \
     longitude_minimum \
     longitude_maximum \
