@@ -31,6 +31,8 @@ R library 'animation' [only if outputting animated gifs]
 
 ImageMagick [only if outputting animated gifs; specifically 'convert' needs to be in your path]
 
+python [only for routeHeatAnimate.py; to be safe make sure you have python3 installed; should also run with python2 version, but not guarantee and you will need to explicitly call python2 in that case]
+
 Usage
 --------------
 
@@ -62,9 +64,21 @@ where:
   - use_map_or_not = (binary); should a map be plotted underneath, 0 = FALSE, 1 = TRUE; NB experimental feature; does not work well with svg output; your plotted region might change slightly
   - path_and_filename_prefix_of_input_files = (character string; path + filename prefix); all files within that directory and with that fileprefix will be used (e.g. /Users/user/myruns/2014*)
 	
+NB
+- if latitude and longitude limits should be computed from the input files then set min and max values to the same numeric value
+- transparency is a number between 0 [invisible or fully transparent] and 1 [not transparent at all]
+- animGIF will provide 3 different GIF animations; the parameters of these (e.g. speed of animation etc) are hard-coded in the R script for now
 
-NB if latitude and longitude limits should be computed from the input files then set min and max values to the same numeric value
+routeHeatAnimate.py
+    input_svg
+    output_html
+    time_seconds
+    stroke_length
+    type
 
-NBB transparency is a number between 0 [invisible or fully transparent] and 1 [not transparent at all]
-
-NBBB animGIF will provide 3 different GIF animations; the parameters of these (e.g. speed of animation etc) are hard-coded in the R script for now
+where
+- input_svg = (character string) path + filename of input svg file
+- output_html = (chracter string) path + filename of output animated svg/html file
+- time_seconds = (integer; seconds) time the animation should take to complete
+- stroke_length = (integer) stroke / dash length used to move around each path; 5000 usually works well for svg's produced from running activity GPX files
+- type = (character) one of 'sequence' or 'simultaneous'; governs whether the runs should build up sequentially one after another [in the order they were in the original svg file] or all at once, with the longest run finishing last; anything other that 'sequence' will assume that 'simultaneous' is what was meant

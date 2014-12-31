@@ -2,6 +2,8 @@
 
 """
 converts an svg file produced by routeHeat into an animated SVG object inside an HTML document
+parses the original routeHeat produced svg file [will not work for some outside produced svg files that contain multiple <rect> or <path> elements] and hacks together an animated svg/html document
+animation is done via CSS and basically just fakes the route running animation with stroke length and offset values
 """
 
 import xml.etree.ElementTree as etree
@@ -14,7 +16,7 @@ import math
 
 fileIn=sys.argv[1]
 fileOut=sys.argv[2]
-animLength=sys.argv[3]
+animLength=sys.argv[3] # governs the time (in seconds) that the animation should run; in practice this will be affected by argument dashLength below
 dashLength=sys.argv[4] # governs the length of each path segment that gets drawn; will affect the overall animation length; 5000 works usually fine
 animStyle=sys.argv[5] # one of 'sequence' or 'simultaneous' [NB if anything other than 'sequence' is specified, 'simultaneous' is assumed]
 
