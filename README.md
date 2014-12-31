@@ -64,5 +64,7 @@ where:
 	
 
 NB if latitude and longitude limits should be computed from the input files then set min and max values to the same numeric value
+
 NBB transparency is a number between 0 [invisible or fully transparent] and 1 [not transparent at all]
+
 NBBB animGIF will provide 3 different GIF animations; the parameters of these (e.g. speed of animation etc) are hard-coded in the R script for now
