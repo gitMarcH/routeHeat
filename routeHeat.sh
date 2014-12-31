@@ -27,10 +27,12 @@ longMax=$1; shift # upper0 longitude plot limit (set longMin==longMax for no lim
 lwd=$1; shift # plotting line width
 alpha=$1; shift # plotting line transparency
 outFormat=$1; shift # pdf, svg or png?
+map=$1; shift # lay map underneath or not?
 prefixGPX=$@ # path & filename start of the input filenames
 
 baseDir=$(dirname $0)
 Rscript=$baseDir/routeHeat.R
+RscriptMap=$baseDir/routeHeatQmap.R
 gpsBabel="gpsbabel" # change this to a full path to the gpsbabel binary if not in $PATH
 
 echo "routeHeat v1.0"
@@ -45,6 +47,8 @@ echo "bgCol = < $bgCol >"
 echo "trkCol = < $trkCol >"
 echo "lwd = < $lwd >"
 echo "alpha = < $alpha >"
+echo "outFormat = < $outFormat >"
+echo "map = < $map >"
 echo "tmpPrefix = < $tmpPrefix >"
 echo "baseDir = < $baseDir >"
 echo "Rscript = < $Rscript >"
@@ -92,13 +96,17 @@ for file in $prefixGPX*.gpx; do
     ((counter++))
     cat $file | grep "<trkpt" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,0}' OFS="\t" >> $tmpFile
     cat $file | grep "<rtept" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,0}' OFS="\t" >> $tmpFile
+    echo "NA NA $counter 0" | awk '{print $1,$2,$3,$4}' OFS="\t" >> $tmpFile
     #cat $file | grep "<startPoint" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,1}' OFS="\t" >> $tmpFile
     #cat $file | grep "<endPoint" | awk -v counter="$counter" -F "\"" '{print $2,$4,counter,2}' OFS="\t" >> $tmpFile
 done
 
 #-----start R to do the plotting
-R --vanilla < $Rscript --args $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat
-
+if [ $map == 1 ]; then
+    Rscript $RscriptMap $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat
+else
+    Rscript $Rscript $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat
+fi
 #-----exit
 rm $tmpFile
 
