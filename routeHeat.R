@@ -28,12 +28,12 @@ inDat<-inDat[inDat[,4]==0,] # ignore start and eng points of laps
 
 #-----check if latitude and longitude limits are given
 if(latMin==latMax | is.na(latMin) | is.na(latMax)){
-    ylim<-c(min(inDat[,1]),max(inDat[,1]))
+    ylim<-c(min(inDat[!is.na(inDat[,1]),1]),max(inDat[!is.na(inDat[,1]),1]))
 }else{
     ylim<-c(latMin,latMax)
 }
 if(longMin==longMax | is.na(longMin) | is.na(longMax)){
-    xlim<-c(min(inDat[,2]),max(inDat[,2]))
+    xlim<-c(min(inDat[!is.na(inDat[,2]),2]),max(inDat[!is.na(inDat[,2]),2]))
 }else{
     xlim<-c(longMin,longMax)
 }
