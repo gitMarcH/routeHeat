@@ -103,8 +103,10 @@ done
 
 #-----start R to do the plotting
 if [ $map == 1 ]; then
+    echo "Rscript $RscriptMap $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat"
     Rscript $RscriptMap $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat
 else
+    echo "Rscript $Rscript $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat"
     Rscript $Rscript $tmpFile $outFile $bgCol $trkCol $latMin $latMax $longMin $longMax $lwd $alpha $outFormat
 fi
 #-----exit

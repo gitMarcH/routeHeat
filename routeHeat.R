@@ -22,6 +22,16 @@ lwd<-as.numeric(args[9])
 alpha<-as.numeric(args[10])
 outFormat<-unlist(strsplit(split=",",args[11])) # note that animGIF requires ImagMagick to be installed (specifically 'convert' needs to be in your path) and the R package 'animation' also needs to be installed
 
+print(paste(sep="","inFile = < ",inFile," >"))
+print(paste(sep="","outPrefix = < ",outPrefix," >"))
+print(paste(sep="","bgCol = < ",bgCol," >"))
+print(paste(sep="","trkCol = < ",trkCol," >"))
+print(paste(sep="","latMin = < ",latMin," >"))
+print(paste(sep="","latMax = < ",latMax," >"))
+print(paste(sep="","lwd = < ",lwd," >"))
+print(paste(sep="","alpha = < ",alpha," >"))
+print(paste(sep="","outFormat = < ",paste(collapse=" ",outFormat)," >"))
+
 #-----read the input data
 inDat<-read.table(inFile,sep="\t",header=F,colClasses="numeric")
 inDat<-inDat[inDat[,4]==0,] # ignore start and eng points of laps
